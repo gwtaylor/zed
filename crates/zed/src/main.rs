@@ -1094,7 +1094,6 @@ struct Args {
     dev_server_token: Option<String>,
 }
 
-// TODO: SYSTEM_ID - Rename
 #[derive(Clone, Debug)]
 enum IdType {
     New(String),
@@ -1280,11 +1279,3 @@ fn watch_file_types(fs: Arc<dyn fs::Fs>, cx: &mut AppContext) {
 
 #[cfg(not(debug_assertions))]
 fn watch_file_types(_fs: Arc<dyn fs::Fs>, _cx: &mut AppContext) {}
-
-// TODO: SYSTEM_ID
-// Reduce duplication in macro
-// Reduce duplication in KVP
-// Migration logic for first time open (one event, separate events, etc.?) - might require adjusting historical data
-// Add system_id to events and clickhouse db table
-// Update whatever Panic struct is sent to to include system_id - /api/panic
-//     Maybe skip to reduce scope creep - can be added later
